@@ -1,1 +1,1 @@
-# java-script-practice
+# This repo contains almost all of my javascript practice activites.
