@@ -13,13 +13,13 @@
     <p id="hello">Hello world!</p>
     <p id="second-p">javaScript is ...</p>
     <button id="tbutton">Change text</button>
-    <button id="sec-but">Second button</button>
+    <button id="sec-but">Append Text</button>
     <script type="text/javascript">
         document.getElementById('tbutton').onclick = function () {
             document.getElementById('hello').innerHTML = "Hello Ahmed";
         }
         document.getElementById('sec-but').onclick = function () {
-            document.getElementById('second-p').innerHTML = document.getElementById('second-p').innerHTML+"awesome!";
+            document.getElementById('second-p').innerHTML ="I think " + document.getElementById('second-p').innerHTML+"awesome!";
         }
     </script>
 </body>
