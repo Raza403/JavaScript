@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JavaScript</title>
-    
+
 </head>
+
 <body>
     <p id="hello">Hello world!</p>
+    <p id="second-p">javaScript is ...</p>
     <button id="tbutton">Change text</button>
+    <button id="sec-but">Second button</button>
     <script type="text/javascript">
-        document.getElementById('tbutton').onclick = function() {
-            document.getElementById('hello').innerHTML = "Hello Ahmed";    
+        document.getElementById('tbutton').onclick = function () {
+            document.getElementById('hello').innerHTML = "Hello Ahmed";
+        }
+        document.getElementById('sec-but').onclick = function () {
+            document.getElementById('second-p').innerHTML = document.getElementById('second-p').innerHTML+"awesome!";
         }
     </script>
 </body>
+
 </html>
