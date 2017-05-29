@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript</title>
+    <style>
+    .bold {
+        font-weight: bold;
+    }
+    #firstCircle {
+        height: 100px;
+        width:  100px;
+        background-color: red;
+        border-radius: 50%;
+        margin-top: 100px;
+        margin-left: 400px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Test Your Reactions!</h1>
+    <p>Click on the boxes and circles as quickly as you can!</p>
+    <p class="bold">Your time: </p>
+    <div id="firstCircle"></div>
+    <div id="circle"></div>
+
+    <script>
+        var circle = false;
+        document.getElementById('firstCircle').onclick = function () {
+            document.getElementById('firstCircle').style.display = "none";
+            document.getElementById('circle').style.height = "80px";
+            document.getElementById('circle').style.width = "80px";
+            document.getElementById('circle').style.backgroundColor = "green";
+            document.getElementById('circle').style.marginTop = "60px";
+            document.getElementById('circle').style.marginLeft = "230px";
+        }
+        document.getElementById('circle').onclick = function (){
+            if (Math.round(Math.random()) > 0) {
+                circle = true;
+            }
+            else {
+                circle = false;
+            }
+            alert(circle);
+        }
+    </script>
+</body>
+</html>
