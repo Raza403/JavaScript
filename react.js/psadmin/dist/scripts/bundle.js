@@ -46268,11 +46268,39 @@ var AuthorPage = React.createClass({displayName: "AuthorPage",
 	// 		this.setState({ authors: AuthorApi.getAllAuthors() });
 	// 	}
 	// },
-
+getInitialState: function() {
+	return {
+		authors: []
+	};
+},
+componentWillMount: function() {
+	this.setState({authors: AuthorApi.getAllAuthors() });
+},
 	render: function() {
+		var createAuthorRow = function(author){
+			return (
+				React.createElement("tr", null, 
+					React.createElement("td", null, 
+						React.createElement("a", {href: '/#authors/' + author.id}, author.id)
+					), 
+					React.createElement("td", null, 
+						author.firstName, " ", author.lastName
+					)
+				)
+			);
+		};
 		return (
 			React.createElement("div", null, 
-				React.createElement("h1", null, "Authors")
+				React.createElement("h1", null, "Authors"), 
+				React.createElement("table", {className: "table"}, 
+					React.createElement("thead", null, 
+						React.createElement("th", null, "ID"), 
+						React.createElement("th", null, "Name")
+					), 
+					React.createElement("tbody", null, 
+						this.state.authors.map(createAuthorRow, this)
+					)
+				)
 			)
 		);
 	}
