@@ -46217,6 +46217,9 @@ module.exports = About;
 var React = require('react');
 
 var AuthorList = React.createClass({displayName: "AuthorList",
+	proptypes: {
+		authors: React.PropTypes.array.isRequired
+	},
 	render: function() {
 		var createAuthorRow = function(author){
 			return (
@@ -46232,7 +46235,6 @@ var AuthorList = React.createClass({displayName: "AuthorList",
 		};
 		return (
 			React.createElement("div", null, 
-				React.createElement("h1", null, "Authors"), 
 				React.createElement("table", {className: "table"}, 
 					React.createElement("thead", null, 
 						React.createElement("th", null, "ID"), 
@@ -46256,7 +46258,7 @@ var React = require('react');
 var AuthorApi = require('../../api/authorApi');
 var AuthorList = require('./authorList');
 
-var Authors = React.createClass({displayName: "Authors",
+var AuthorPage = React.createClass({displayName: "AuthorPage",
 getInitialState: function() {
 	return {
 		authors: []
@@ -46278,7 +46280,7 @@ componentDidMount: function() {
 	}
 });
 
-module.exports = Authors;
+module.exports = AuthorPage;
 
 },{"../../api/authorApi":159,"./authorList":162,"react":158}],164:[function(require,module,exports){
 "use strict";
