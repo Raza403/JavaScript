@@ -46217,22 +46217,22 @@ module.exports = About;
 var React = require('react');
 
 var AuthorList = React.createClass({displayName: "AuthorList",
-	propTypes: {
-		authors: React.PropTypes.array.isRequired
-	},
-
 	render: function() {
-		var createAuthorRow = function(author) {
+		var createAuthorRow = function(author){
 			return (
-				React.createElement("tr", {key: author.id}, 
-					React.createElement("td", null, React.createElement("a", {href: "/#authors/" + author.id}, author.id)), 
-					React.createElement("td", null, author.firstName, " ", author.lastName)
+				React.createElement("tr", null, 
+					React.createElement("td", null, 
+						React.createElement("a", {href: '/#authors/' + author.id}, author.id)
+					), 
+					React.createElement("td", null, 
+						author.firstName, " ", author.lastName
+					)
 				)
 			);
 		};
-
 		return (
 			React.createElement("div", null, 
+				React.createElement("h1", null, "Authors"), 
 				React.createElement("table", {className: "table"}, 
 					React.createElement("thead", null, 
 						React.createElement("th", null, "ID"), 
@@ -46256,57 +46256,29 @@ var React = require('react');
 var AuthorApi = require('../../api/authorApi');
 var AuthorList = require('./authorList');
 
-var AuthorPage = React.createClass({displayName: "AuthorPage",
-	// getInitialState: function() {
-	// 	return {
-	// 		authors: []
-	// 	};
-	// },
-
-	// componentDidMount: function() {
-	// 	if (this.isMounted()) {
-	// 		this.setState({ authors: AuthorApi.getAllAuthors() });
-	// 	}
-	// },
+var Authors = React.createClass({displayName: "Authors",
 getInitialState: function() {
 	return {
 		authors: []
 	};
 },
-componentWillMount: function() {
+componentDidMount: function() {
+	if (this.isMounted()) {
 	this.setState({authors: AuthorApi.getAllAuthors() });
+	}
 },
 	render: function() {
-		var createAuthorRow = function(author){
-			return (
-				React.createElement("tr", null, 
-					React.createElement("td", null, 
-						React.createElement("a", {href: '/#authors/' + author.id}, author.id)
-					), 
-					React.createElement("td", null, 
-						author.firstName, " ", author.lastName
-					)
-				)
-			);
-		};
+
 		return (
 			React.createElement("div", null, 
 				React.createElement("h1", null, "Authors"), 
-				React.createElement("table", {className: "table"}, 
-					React.createElement("thead", null, 
-						React.createElement("th", null, "ID"), 
-						React.createElement("th", null, "Name")
-					), 
-					React.createElement("tbody", null, 
-						this.state.authors.map(createAuthorRow, this)
-					)
-				)
+				React.createElement(AuthorList, {authors: this.state.authors})
 			)
 		);
 	}
 });
 
-module.exports = AuthorPage;
+module.exports = Authors;
 
 },{"../../api/authorApi":159,"./authorList":162,"react":158}],164:[function(require,module,exports){
 "use strict";
@@ -46367,7 +46339,7 @@ var Header = require('./components/common/header');
 
 			switch(this.props.route) {
 				case 'about': Child = About; break;
-				case 'authors': Child = Authors;break;
+				case 'authors': Child = Authors; break;
 				default: Child = Home;
 			}
 
