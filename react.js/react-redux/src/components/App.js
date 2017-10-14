@@ -1,11 +1,11 @@
 // This component handles the app tempelate used on every page.
 import React, {PropTypes} from 'react';
-
+import Header from './common/Header';
 class App extends React.Component {
     render() {
         return (
             <div className="container-fluid">
-                <p>Header Here...</p>
+                <Header />
                 {this.props.children}
             </div>
         );
