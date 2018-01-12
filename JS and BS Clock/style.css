@@ -17,7 +17,7 @@ body {
     left: 28%;
     position: relative;
     width: 50%;
-    top: 7%;
+    top: 10vh;
 }
 
 .circle {
@@ -26,7 +26,7 @@ body {
     width: calc(75%-20px);
     height: auto;
     padding-top: 87%;
-    background-color: blue;
+    background-color: transparent;
     border: 20px solid white;
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
@@ -37,16 +37,39 @@ body {
 }
 
 .hand {
-    height: 6px;
+    height: 8px;
     width: 50%;
     position: absolute;
     top: 50%;
     background: black;
     transform-origin: 100%;
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
-
-.hand-seconds {transform: rotate(20deg);}
-
-.hand-minutes {}
-
-.hand-hours {}
+@media screen and (max-width: 500px){
+    .circle{
+        border:10px solid white;
+    }
+    .hand{
+        height: 5px;
+    }
+    .wrapper{
+        top:30vh;
+    }
+}
+@media screen and (max-width:800px){
+    .wrapper{
+        top:20vh;
+    }
+}
+@media screen and (max-width: 300px){
+    .circle{
+        border:5px solid white;
+    }
+    .hand{
+        height: 3px;
+    }
+    .wrapper{
+        top:40vh;
+    }
+}

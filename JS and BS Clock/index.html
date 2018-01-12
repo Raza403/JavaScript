@@ -5,10 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>JS & BS Clock</title>
+    <title>JS & CSS Clock</title>
 
-    <!-- Bootstrap -->
-    <link href="./node_modules/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -27,9 +25,23 @@
         </div>
     </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="./node_modules/jquery/jquery-3.2.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        const secondHand = document.querySelector(".hand-seconds");
+        const minutesHand = document.querySelector(".hand-minutes");
+        const hoursHand = document.querySelector(".hand-hours");
+    function setDate(){
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const secondsDeg = ((seconds/60)*360);
+        const minutes = now.getMinutes();
+        const minutesDeg = (minutes/60)*360;
+        const hours = now.getHours();
+        const hoursDeg = (hours/12)*360;
+        secondHand.style.transform = `rotate(${secondsDeg}deg)`;
+        minutesHand.style.transform = `rotate(${minutesDeg}deg)`;
+        hoursHand.style.transform = `rotate(${hoursDeg}deg)`;
+    }
+    setInterval(setDate,1000);
+    </script>
   </body>
 </html>
