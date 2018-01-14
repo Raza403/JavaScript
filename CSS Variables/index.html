@@ -23,28 +23,28 @@
 
 <body>
   <header>
-  <div class="container-fluid">
-    <h1 class="h1 text-center col-xs-12">Update CSS variables with
-      <span class="highlight">JS</span>
-    </h1>
-    <div class="controls col-xs-12">
-      <div class="col-sm-4 text-center">
-        <label for="spacing" class="h3">Spacing</label>
-        <input type="range" id="spacing" name="spacing" min="10" max="200" value="10" data-sizing="px">
+    <div class="container-fluid">
+      <h1 class="h1 text-center col-xs-12">Update CSS variables with
+        <span class="highlight">JS</span>
+      </h1>
+      <div class="controls col-xs-12">
+        <div class="col-sm-4 text-center">
+          <label for="spacing" class="h3">Spacing</label>
+          <input type="range" id="spacing" name="spacing" min="10" max="200" value="10" data-sizing="px">
+        </div>
+        <div class="col-sm-4 text-center">
+          <label for="blur" class="h3">Blur</label>
+          <input type="range" id="blur" name="blur" min="0" max="25" value="10" data-sizing="px">
+        </div>
+        <div class="col-sm-4 text-center">
+          <label for="color" class="h3">Color</label>
+          <input type="color" id="color" name="base" value="#ffc600">
+        </div>
       </div>
-      <div class="col-sm-4 text-center">
-        <label for="blur" class="h3">Blur</label>
-        <input type="range" id="blur" name="blur" min="0" max="25" value="10" data-sizing="px">
-      </div>
-      <div class="col-sm-4 text-center">
-        <label for="color" class="h3">Color</label>
-        <input type="color" id="color" name="base" value="#ffc600">
-      </div>
-    </div>
   </header>
-    <div class="col-xs-12" id="main">
-      <img class="img-responsive" src="https://source.unsplash.com/7bwQXzbF6KE/800x500" alt="Girl on mountain trail">
-    </div>
+  <div class="col-xs-12" id="main">
+    <img class="img-responsive" src="https://source.unsplash.com/7bwQXzbF6KE/800x500" alt="Girl on mountain trail">
+  </div>
   </div>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -53,12 +53,12 @@
   <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script>
     function handleChange(){
-      const suffix = this.dataset.sizing || '';
+      let suffix = this.dataset.sizing || "";
       document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
     let inputs = document.querySelectorAll(".controls input");
-    inputs.forEach(input => (input.addEventListener("change", handleChange)));
-    inputs.forEach(input => (input.addEventListener("mousemove", handleChange)));
+    inputs.forEach(input => input.addEventListener("change", handleChange));
+    inputs.forEach(input => input.addEventListener("mousemove", handleChange));
   </script>
 </body>
 
