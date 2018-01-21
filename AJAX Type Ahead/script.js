@@ -22,7 +22,7 @@ function displayMatches() {
     suggestions.innerHTML = "<li>Filter for a city</li><li>or a state</li>"
   } else {
     const matchArray = findMatches(this.value, cities);
-    const html = matchArray.map(place => {
+    const html = matchArray.map((place) => {
       const regex = new RegExp(this.value, 'gi');
       const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
       const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
