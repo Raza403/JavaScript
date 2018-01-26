@@ -6,8 +6,13 @@ import {apiKey as key,
   old,
   dog} from "./config";
 
-const ages = [1,21,2,4,5,3,1,2,4,5,3];
-console.log(uniq(ages));
-console.log(key,old,dog);
-console.log(url);
-sayHi('ahmed');
+import User,{creatURL, gravatar, createURL} from './user';
+
+const ahmed = new User('ahmed', 'raza403@gmail.com', 'devbros.tk');
+console.log(ahmed);
+
+const link = createURL('ahmed');
+console.log(`This is ${link}`);
+
+const image = gravatar(ahmed.email);
+console.log(image);
