@@ -6,19 +6,18 @@
 </head>
 <body>
 <script>
-  function Dog(name, breed) {
-    this.name = name;
-    this.breed = breed;
+  class Dog {
+    constructor(name,breed){
+      this.name = name;
+      this.breed = breed;
+    }
+    bark(){
+      console.log(`Bark Bark! My name is ${this.name}`);
+    }
+    cuddle(){
+      console.log(`I love you owner!`);
+    }
   }
-
-  Dog.prototype.bark = function() {
-    console.log(`Bark Bark! My name is ${this.name}`);
-  };
-
-  Dog.prototype.cuddle = function() {
-    console.log(`I love you owner!`);
-  };
-
   const snickers = new Dog('Snickers', 'King Charles');
   const sunny = new Dog('Sunny', 'Golden Doodle');
 
