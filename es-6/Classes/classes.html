@@ -17,6 +17,18 @@
     cuddle(){
       console.log(`I love you owner!`);
     }
+    static info(){
+      console.log(`Cat is much better than dog`);
+    }
+    get description(){
+      return console.log(`${this.name} is a ${this.breed} type of dog`);
+    }
+    set nickName(value){
+      this.nick = value.trim();
+    }
+    get nickName(){
+      return this.nick; 
+    }
   }
   const snickers = new Dog('Snickers', 'King Charles');
   const sunny = new Dog('Sunny', 'Golden Doodle');
