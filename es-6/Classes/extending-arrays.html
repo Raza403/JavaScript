@@ -7,15 +7,15 @@
 <body>
 <script>
   class MovieCollection extends Array {
-    constructor(name, ...items) {
+    constructor(name,...items){
       super(...items);
       this.name = name;
     }
-    add(movie) {
+    add(movie){
       this.push(movie);
     }
-    topRated(limit = 10) {
-      return this.sort((a, b) => (a.stars > b.stars ? -1 : 1)).slice(0, limit);
+    topRated(limit = 10){
+      this.sort((a,b) => a.stars>b.stars ? -1 : 1).slice(0,limit);
     }
   }
 
