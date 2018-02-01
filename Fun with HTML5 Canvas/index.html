@@ -12,10 +12,12 @@
    canvas.width = window.innerWidth;
    canvas.height = window.innerHeight;
 
-   ctx.strokeStyle = '#bada55';
+  //  ctx.strokeStyle = '#bada55'; had set it dynamically below in draw fn
    ctx.lineJoin = 'round';
    ctx.lineCap = 'round';
-
+   ctx.lineWidth = 1;
+   let hue = 0;
+   let direction = true;
   let isDrawing = false;
   let lastX = 0;
   let lastY = 0;
@@ -25,12 +27,23 @@
     // they are not moused down
     console.log(e);
     ctx.beginPath();
+    ctx.strokeStyle = `hsl(${hue},100%,50%)`;
     //start from
     ctx.moveTo(lastX, lastY);
     //go to
     ctx.lineTo(e.offsetX, e.offsetY);
     ctx.stroke();
     [lastX,lastY] = [e.offsetX,e.offsetY];
+    hue++;
+    if (ctx.lineWidth >=40 || ctx.lineWidth <=1){
+      direction = !direction;
+    }
+    if (direction == true){
+      ctx.lineWidth++;
+    }
+    else{
+      ctx.lineWidth--;
+    }
   }
   canvas.addEventListener('mousedown', (e)=>{
     isDrawing = true;
