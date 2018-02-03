@@ -12,7 +12,6 @@ module.exports = {
         "react",
         "jsx-a11y",
         "import",
-        "html",
-        "markdown"
+        "html"
     ]
 };
