@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Raza403/js-practice#readme",
   "devDependencies": {
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-markdown": "^1.0.0-beta.6",
