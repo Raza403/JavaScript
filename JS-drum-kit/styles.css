@@ -32,7 +32,7 @@ html {
   margin: .5rem;
   font-size: 1rem;
   padding: 1rem 0;
-  transition: all .07s ease;
+  transition: all 0.07s ease;
   font-size: 1.5rem;
   font-weight: bold;
   min-width: 8rem;
