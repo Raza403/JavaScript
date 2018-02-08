@@ -49,11 +49,7 @@ const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'N
 function strip(bandName){return bandName.replace(/^(a |an |the)/i,"").trim()};
 // Sort while striping both items
 const sorted = bands.sort((a,b) => strip(a) > strip(b) ? 1 : -1);
-const list = document.querySelector("#bands");
-const html = [];
-// Populate html array
-sorted.forEach(band => html.push(`<li>${band}</li>`));
-list.innerHTML = html.join("");
+document.querySelector("#bands").innerHTML = sorted.map(band => `<li>${band}</li>`).join("");
 </script>
 
 </body>
