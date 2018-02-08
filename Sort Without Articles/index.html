@@ -45,8 +45,15 @@
 
 <script>
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
-
-
+// Strip out "a","an","the" using regex in replace then trimming any space after the word
+function strip(bandName){return bandName.replace(/^(a |an |the)/i,"").trim()};
+// Sort while striping both items
+const sorted = bands.sort((a,b) => strip(a) > strip(b) ? 1 : -1);
+const list = document.querySelector("#bands");
+const html = [];
+// Populate html array
+sorted.forEach(band => html.push(`<li>${band}</li>`));
+list.innerHTML = html.join("");
 </script>
 
 </body>
