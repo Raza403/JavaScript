@@ -182,7 +182,27 @@
     </li>
   </ul>
 <script>
-  const time = [...document.querySelectorAll("[data-time]");
+  let seconds = [...document.querySelectorAll("[data-time]")]
+  //Extracting Time
+    .map(node => node.dataset.time)
+    .map(time => {
+      // Extracting mins and seconds from time, convserting into int
+      const [mins,secs] = time.split(":").map(parseFloat);
+      //returning time by converting into seconds
+      return mins * 60 + secs;
+    })
+    // Adding up all seconds
+    .reduce((total,secs) => total + secs);
+
+    //Extracting total complete Hours
+    const hours = Math.floor(seconds / 3600);
+    // Calculating remaining seconds
+    seconds = seconds % 3600;
+    //Extracting minutes from remaining seconds
+    const minutes = Math.floor(seconds / 60);
+    // Calculating remaining seconds
+    seconds = seconds % 60;
+    console.log(hours,minutes,seconds);
 </script>
 </body>
 </html>
