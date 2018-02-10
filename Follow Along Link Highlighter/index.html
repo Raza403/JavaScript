@@ -27,18 +27,24 @@
 
   <script>
     // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
-    const links = document.querySelectorAll("a");
-    const heighLight = document.createElement("span");
-    heighLight.classList.add("heiglight");
-    document.body.appendChild(heighLight);
+    const triggers = document.querySelectorAll("a");
+    const highlight = document.createElement("span");
+    highlight.classList.add("highlight");
+    document.body.appendChild(highlight);
 
-    function handleTrigger(){
+    function handleHighlight(){
       const coordinates = this.getBoundingClientRect();
-      console.log(coordinates);
-      heighLight.style.width = `${coordinates.width}px`;
-      heighLight.style.height = `${coordinates.height}px`;
+      const coords = {
+        width: coordinates.width,
+        height: coordinates.height,
+        top: coordinates.top + window.scrollY,
+        left: coordinates.left + window.scrollX
+      }
+      highlight.style.width = `${coords.width}px`;
+      highlight.style.height = `${coords.height}px`;
+      highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
     }
-    links.forEach(a => a.addEventListener("mouseenter", handleTrigger))
+    triggers.forEach(a => a.addEventListener("mouseenter", handleHighlight));
   </script>
 </body>
 </html>
