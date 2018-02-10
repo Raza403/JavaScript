@@ -27,6 +27,18 @@
 
   <script>
     // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    const links = document.querySelectorAll("a");
+    const heighLight = document.createElement("span");
+    heighLight.classList.add("heiglight");
+    document.body.appendChild(heighLight);
+
+    function handleTrigger(){
+      const coordinates = this.getBoundingClientRect();
+      console.log(coordinates);
+      heighLight.style.width = `${coordinates.width}px`;
+      heighLight.style.height = `${coordinates.height}px`;
+    }
+    links.forEach(a => a.addEventListener("mouseenter", handleTrigger))
   </script>
 </body>
 </html>
