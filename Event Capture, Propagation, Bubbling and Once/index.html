@@ -37,9 +37,22 @@
   }
 </style>
 
-<button></button>
+<button>Hello</button>
 <script>
+  const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
 
+  function handleButton(){
+    console.log('Clicked');
+  }
+  function handleDiv(e){
+    e.stopPropagation();//This will stop bubbling the event Up.
+    console.log(this.classList.value);
+  }
+
+  //once:true will force the button to be clicked once only
+  button.addEventListener('click', handleButton,{once: true});
+  divs.forEach(div => div.addEventListener('click',handleDiv));
 </script>
 </body>
 </html>
