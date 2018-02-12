@@ -54,12 +54,28 @@
   </div>
 
 <script>
-  const nav = document.querySelector("#main");
-
+  
+  const nav = document.querySelector('#main');
+  /*Calculate the nav offset from top
+  Used to add when nav is fixed and 
+  all inherent paddings are removed*/
+  const navOffsetTop = nav.offsetTop;
   function fixNav(){
-
+    if(window.scrollY >= navOffsetTop){
+      //Add offset height, remember to add 'px' after the value
+      document.body.style.paddingTop = nav.offsetHeight + 'px';
+      //Add class of fixed-nav to body
+      document.body.classList.add('fixed-nav');
+    }else
+    {
+      //Remove offset padding add using JS above
+      document.body.style.paddingTop = 0;
+      //Remove the applied padding
+      document.body.classList.remove('fixed-nav');
+    }
   }
-  window.addEventListener("scroll", fixNav);
+
+  document.addEventListener('scroll', fixNav);
 </script>
 
 </body>
